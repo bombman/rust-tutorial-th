@@ -1,1 +1,17 @@
-book
+# Generated book files
+book/
+
+# Rust build files
+target/
+
+# Backup files
+*.bak
+*~
+
+# IDE and editor specific files
+.vscode/
+.idea/
+.DS_Store
+
+# Ignore deploy script
+deploy.sh
