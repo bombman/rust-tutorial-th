@@ -5,7 +5,7 @@
   * [Installing Rust on Windows](chapter1/install_windows.md)
   * [Installing Rust on macOS](chapter1/install_macos.md)
   * [Your First Project](chapter1/first_project.md)
-* [Chapter 2: Basics](chapter2/variables.md)
+* [Chapter 2: Basics](chapter2/basics.md)
   * [Variables](chapter2/variables.md)
   * [Data Types](chapter2/data_types.md)
   * [Mutable and Immutable](chapter2/mutable_immutable.md)
