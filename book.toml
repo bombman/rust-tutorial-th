@@ -1,0 +1,6 @@
+[book]
+authors = ["bombman"]
+language = "en"
+multilingual = false
+src = "src"
+title = "Rust Programming Tutorial (Thai)"
