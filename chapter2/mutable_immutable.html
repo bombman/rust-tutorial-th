@@ -1,0 +1,262 @@
+<!DOCTYPE HTML>
+<html lang="en" class="sidebar-visible no-js light">
+    <head>
+        <!-- Book generated using mdBook -->
+        <meta charset="UTF-8">
+        <title>Mutable and Immutable - Rust Programming Tutorial (Thai)</title>
+
+
+        <!-- Custom HTML head -->
+        
+        <meta name="description" content="">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <meta name="theme-color" content="#ffffff" />
+
+        <link rel="icon" href="../favicon.svg">
+        <link rel="shortcut icon" href="../favicon.png">
+        <link rel="stylesheet" href="../css/variables.css">
+        <link rel="stylesheet" href="../css/general.css">
+        <link rel="stylesheet" href="../css/chrome.css">
+        <link rel="stylesheet" href="../css/print.css" media="print">
+
+        <!-- Fonts -->
+        <link rel="stylesheet" href="../FontAwesome/css/font-awesome.css">
+        <link rel="stylesheet" href="../fonts/fonts.css">
+
+        <!-- Highlight.js Stylesheets -->
+        <link rel="stylesheet" href="../highlight.css">
+        <link rel="stylesheet" href="../tomorrow-night.css">
+        <link rel="stylesheet" href="../ayu-highlight.css">
+
+        <!-- Custom theme stylesheets -->
+
+    </head>
+    <body>
+    <div id="body-container">
+        <!-- Provide site root to javascript -->
+        <script>
+            var path_to_root = "../";
+            var default_theme = window.matchMedia("(prefers-color-scheme: dark)").matches ? "navy" : "light";
+        </script>
+
+        <!-- Work around some values being stored in localStorage wrapped in quotes -->
+        <script>
+            try {
+                var theme = localStorage.getItem('mdbook-theme');
+                var sidebar = localStorage.getItem('mdbook-sidebar');
+
+                if (theme.startsWith('"') && theme.endsWith('"')) {
+                    localStorage.setItem('mdbook-theme', theme.slice(1, theme.length - 1));
+                }
+
+                if (sidebar.startsWith('"') && sidebar.endsWith('"')) {
+                    localStorage.setItem('mdbook-sidebar', sidebar.slice(1, sidebar.length - 1));
+                }
+            } catch (e) { }
+        </script>
+
+        <!-- Set the theme before any content is loaded, prevents flash -->
+        <script>
+            var theme;
+            try { theme = localStorage.getItem('mdbook-theme'); } catch(e) { }
+            if (theme === null || theme === undefined) { theme = default_theme; }
+            var html = document.querySelector('html');
+            html.classList.remove('no-js')
+            html.classList.remove('light')
+            html.classList.add(theme);
+            html.classList.add('js');
+        </script>
+
+        <!-- Hide / unhide sidebar before it is displayed -->
+        <script>
+            var html = document.querySelector('html');
+            var sidebar = null;
+            if (document.body.clientWidth >= 1080) {
+                try { sidebar = localStorage.getItem('mdbook-sidebar'); } catch(e) { }
+                sidebar = sidebar || 'visible';
+            } else {
+                sidebar = 'hidden';
+            }
+            html.classList.remove('sidebar-visible');
+            html.classList.add("sidebar-" + sidebar);
+        </script>
+
+        <nav id="sidebar" class="sidebar" aria-label="Table of contents">
+            <div class="sidebar-scrollbox">
+                <ol class="chapter"><li class="chapter-item expanded "><a href="../index.html"><strong aria-hidden="true">1.</strong> Introduction</a></li><li class="chapter-item expanded "><a href="../chapter1/intro.html"><strong aria-hidden="true">2.</strong> Chapter 1: Getting Started</a></li><li><ol class="section"><li class="chapter-item expanded "><a href="../chapter1/install_windows.html"><strong aria-hidden="true">2.1.</strong> Installing Rust on Windows</a></li><li class="chapter-item expanded "><a href="../chapter1/install_macos.html"><strong aria-hidden="true">2.2.</strong> Installing Rust on macOS</a></li><li class="chapter-item expanded "><a href="../chapter1/first_project.html"><strong aria-hidden="true">2.3.</strong> Your First Project</a></li></ol></li><li class="chapter-item expanded "><a href="../chapter2/basics.html"><strong aria-hidden="true">3.</strong> Chapter 2: Basics</a></li><li><ol class="section"><li class="chapter-item expanded "><a href="../chapter2/variables.html"><strong aria-hidden="true">3.1.</strong> Variables</a></li><li class="chapter-item expanded "><a href="../chapter2/data_types.html"><strong aria-hidden="true">3.2.</strong> Data Types</a></li><li class="chapter-item expanded "><a href="../chapter2/mutable_immutable.html" class="active"><strong aria-hidden="true">3.3.</strong> Mutable and Immutable</a></li><li class="chapter-item expanded "><a href="../chapter2/immutable_static_const.html"><strong aria-hidden="true">3.4.</strong> Immutable_Static_Const</a></li></ol></li><li class="chapter-item expanded "><a href="../chapter3/functions.html"><strong aria-hidden="true">4.</strong> Chapter 3: Functions</a></li><li><ol class="section"><li class="chapter-item expanded "><a href="../chapter3/scope.html"><strong aria-hidden="true">4.1.</strong> Scope</a></li><li class="chapter-item expanded "><a href="../chapter3/lifetime.html"><strong aria-hidden="true">4.2.</strong> Lifetimes</a></li></ol></li><li class="chapter-item expanded "><a href="../chapter4/control_flow.html"><strong aria-hidden="true">5.</strong> Chapter 4: Control Flow</a></li><li><ol class="section"><li class="chapter-item expanded "><a href="../chapter4/loops.html"><strong aria-hidden="true">5.1.</strong> Loops</a></li><li class="chapter-item expanded "><a href="../chapter4/match.html"><strong aria-hidden="true">5.2.</strong> Match</a></li></ol></li><li class="chapter-item expanded "><a href="../chapter5/ownership.html"><strong aria-hidden="true">6.</strong> Chapter 5: Ownership and Borrowing</a></li><li><ol class="section"><li class="chapter-item expanded "><a href="../chapter5/borrowing.html"><strong aria-hidden="true">6.1.</strong> Borrowing</a></li><li class="chapter-item expanded "><a href="../chapter5/lifetimes.html"><strong aria-hidden="true">6.2.</strong> Lifetimes</a></li></ol></li><li class="chapter-item expanded "><a href="../chapter6/structs.html"><strong aria-hidden="true">7.</strong> Chapter 6: Structs and Enums</a></li><li><ol class="section"><li class="chapter-item expanded "><a href="../chapter6/enums.html"><strong aria-hidden="true">7.1.</strong> Enums</a></li><li class="chapter-item expanded "><a href="../chapter6/methods.html"><strong aria-hidden="true">7.2.</strong> Methods</a></li></ol></li><li class="chapter-item expanded "><a href="../chapter7/error_handling.html"><strong aria-hidden="true">8.</strong> Chapter 7: Error Handling</a></li><li><ol class="section"><li class="chapter-item expanded "><a href="../chapter7/result_option.html"><strong aria-hidden="true">8.1.</strong> Result and Option</a></li><li class="chapter-item expanded "><a href="../chapter7/match_unwrap.html"><strong aria-hidden="true">8.2.</strong> Match and Unwrap</a></li></ol></li><li class="chapter-item expanded "><a href="../chapter8/vectors.html"><strong aria-hidden="true">9.</strong> Chapter 8: Collections</a></li><li><ol class="section"><li class="chapter-item expanded "><a href="../chapter8/hash_maps.html"><strong aria-hidden="true">9.1.</strong> Hash Maps</a></li><li class="chapter-item expanded "><a href="../chapter8/strings.html"><strong aria-hidden="true">9.2.</strong> Strings</a></li></ol></li><li class="chapter-item expanded "><a href="../chapter9/modules.html"><strong aria-hidden="true">10.</strong> Chapter 9: Modules and Crates</a></li><li><ol class="section"><li class="chapter-item expanded "><a href="../chapter9/crates.html"><strong aria-hidden="true">10.1.</strong> Crates</a></li><li class="chapter-item expanded "><a href="../chapter9/cargo_dependencies.html"><strong aria-hidden="true">10.2.</strong> Cargo Dependencies</a></li></ol></li><li class="chapter-item expanded "><a href="../chapter10/traits.html"><strong aria-hidden="true">11.</strong> Chapter 10: Traits and Generics</a></li><li><ol class="section"><li class="chapter-item expanded "><a href="../chapter10/generics.html"><strong aria-hidden="true">11.1.</strong> Generics</a></li><li class="chapter-item expanded "><a href="../chapter10/reusable_code.html"><strong aria-hidden="true">11.2.</strong> Reusable Code</a></li></ol></li><li class="chapter-item expanded "><a href="../chapter11/unit_tests.html"><strong aria-hidden="true">12.</strong> Chapter 11: Testing</a></li><li><ol class="section"><li class="chapter-item expanded "><a href="../chapter11/integration_tests.html"><strong aria-hidden="true">12.1.</strong> Integration Tests</a></li><li class="chapter-item expanded "><a href="../chapter11/cargo_test.html"><strong aria-hidden="true">12.2.</strong> Cargo Test</a></li></ol></li><li class="chapter-item expanded "><a href="../chapter12/async_intro.html"><strong aria-hidden="true">13.</strong> Chapter 12: Asynchronous Programming</a></li><li><ol class="section"><li class="chapter-item expanded "><a href="../chapter12/async_await.html"><strong aria-hidden="true">13.1.</strong> Async Await</a></li><li class="chapter-item expanded "><a href="../chapter12/tokio.html"><strong aria-hidden="true">13.2.</strong> Tokio</a></li></ol></li><li class="chapter-item expanded "><a href="../chapter13/design.html"><strong aria-hidden="true">14.</strong> Chapter 13: High Concurrency Ticket Booking System</a></li><li><ol class="section"><li class="chapter-item expanded "><a href="../chapter13/concurrency.html"><strong aria-hidden="true">14.1.</strong> Concurrency</a></li><li class="chapter-item expanded "><a href="../chapter13/database.html"><strong aria-hidden="true">14.2.</strong> Database</a></li><li class="chapter-item expanded "><a href="../SUMMARY.html"><strong aria-hidden="true">14.3.</strong> Summary</a></li></ol></li></ol>
+            </div>
+            <div id="sidebar-resize-handle" class="sidebar-resize-handle"></div>
+        </nav>
+
+        <div id="page-wrapper" class="page-wrapper">
+
+            <div class="page">
+                                <div id="menu-bar-hover-placeholder"></div>
+                <div id="menu-bar" class="menu-bar sticky bordered">
+                    <div class="left-buttons">
+                        <button id="sidebar-toggle" class="icon-button" type="button" title="Toggle Table of Contents" aria-label="Toggle Table of Contents" aria-controls="sidebar">
+                            <i class="fa fa-bars"></i>
+                        </button>
+                        <button id="theme-toggle" class="icon-button" type="button" title="Change theme" aria-label="Change theme" aria-haspopup="true" aria-expanded="false" aria-controls="theme-list">
+                            <i class="fa fa-paint-brush"></i>
+                        </button>
+                        <ul id="theme-list" class="theme-popup" aria-label="Themes" role="menu">
+                            <li role="none"><button role="menuitem" class="theme" id="light">Light</button></li>
+                            <li role="none"><button role="menuitem" class="theme" id="rust">Rust</button></li>
+                            <li role="none"><button role="menuitem" class="theme" id="coal">Coal</button></li>
+                            <li role="none"><button role="menuitem" class="theme" id="navy">Navy</button></li>
+                            <li role="none"><button role="menuitem" class="theme" id="ayu">Ayu</button></li>
+                        </ul>
+                        <button id="search-toggle" class="icon-button" type="button" title="Search. (Shortkey: s)" aria-label="Toggle Searchbar" aria-expanded="false" aria-keyshortcuts="S" aria-controls="searchbar">
+                            <i class="fa fa-search"></i>
+                        </button>
+                    </div>
+
+                    <h1 class="menu-title">Rust Programming Tutorial (Thai)</h1>
+
+                    <div class="right-buttons">
+                        <a href="../print.html" title="Print this book" aria-label="Print this book">
+                            <i id="print-button" class="fa fa-print"></i>
+                        </a>
+
+                    </div>
+                </div>
+
+                <div id="search-wrapper" class="hidden">
+                    <form id="searchbar-outer" class="searchbar-outer">
+                        <input type="search" id="searchbar" name="searchbar" placeholder="Search this book ..." aria-controls="searchresults-outer" aria-describedby="searchresults-header">
+                    </form>
+                    <div id="searchresults-outer" class="searchresults-outer hidden">
+                        <div id="searchresults-header" class="searchresults-header"></div>
+                        <ul id="searchresults">
+                        </ul>
+                    </div>
+                </div>
+
+                <!-- Apply ARIA attributes after the sidebar and the sidebar toggle button are added to the DOM -->
+                <script>
+                    document.getElementById('sidebar-toggle').setAttribute('aria-expanded', sidebar === 'visible');
+                    document.getElementById('sidebar').setAttribute('aria-hidden', sidebar !== 'visible');
+                    Array.from(document.querySelectorAll('#sidebar a')).forEach(function(link) {
+                        link.setAttribute('tabIndex', sidebar === 'visible' ? 0 : -1);
+                    });
+                </script>
+
+                <div id="content" class="content">
+                    <main>
+                        <h1 id="mutable-and-immutable"><a class="header" href="#mutable-and-immutable">Mutable and Immutable</a></h1>
+<p>ใน Rust หนึ่งในแนวคิดที่สำคัญที่สุดคือการจัดการตัวแปรที่สามารถเปลี่ยนแปลงค่าได้ (Mutable) และไม่สามารถเปลี่ยนแปลงค่าได้ (Immutable) แนวคิดนี้เป็นพื้นฐานที่ทำให้ Rust มีความปลอดภัยในการจัดการหน่วยความจำและช่วยป้องกันข้อผิดพลาดที่เกิดจากการเปลี่ยนแปลงค่าที่ไม่คาดคิด ในบทนี้เราจะมาทำความเข้าใจแนวคิดเหล่านี้และดูตัวอย่างการใช้งานในสถานการณ์ต่างๆ</p>
+<h2 id="แนวคิดพืนฐาน"><a class="header" href="#แนวคิดพืนฐาน">แนวคิดพื้นฐาน</a></h2>
+<h2 id="immutable"><a class="header" href="#immutable">Immutable</a></h2>
+<p>โดยค่าเริ่มต้น ตัวแปรใน Rust จะเป็นแบบ Immutable ซึ่งหมายความว่า เมื่อกำหนดค่าให้ตัวแปรแล้วจะไม่สามารถเปลี่ยนแปลงค่าได้ การใช้ตัวแปรแบบ Immutable ช่วยให้โค้ดมีความชัดเจนและปลอดภัยมากขึ้น เนื่องจากเรามั่นใจได้ว่าค่าของตัวแปรจะไม่ถูกเปลี่ยนแปลงโดยไม่ตั้งใจ</p>
+<p>ตัวอย่างการประกาศตัวแปรแบบ Immutable:</p>
+<pre><pre class="playground"><code class="language-rust">fn main() {
+    let x = 5;
+    println!(&quot;The value of x is: {}&quot;, x);
+    x = 6; // Error: cannot assign twice to immutable variable
+}</code></pre></pre>
+<p>ในตัวอย่างนี้ ตัวแปร x ถูกประกาศเป็น Immutable ดังนั้นเมื่อพยายามเปลี่ยนค่าของ x จะเกิดข้อผิดพลาด</p>
+<h2 id="mutable"><a class="header" href="#mutable">Mutable</a></h2>
+<p>ในบางกรณี เราต้องการให้ตัวแปรสามารถเปลี่ยนแปลงค่าได้ เราสามารถทำได้โดยการใช้คำสั่ง mut เพื่อประกาศตัวแปรแบบ Mutable ซึ่งช่วยให้เราสามารถเปลี่ยนแปลงค่าได้ตามต้องการ</p>
+<p>ตัวอย่างการประกาศตัวแปรแบบ Mutable:</p>
+<pre><code class="language-Rust">fn main() {
+    let mut y = 10;
+    println!(&quot;The value of y is: {}&quot;, y);
+    y = 15;
+    println!(&quot;The value of y is now: {}&quot;, y);
+}
+</code></pre>
+<p>ในตัวอย่างนี้ ตัวแปร y ถูกประกาศเป็น Mutable ทำให้เราสามารถเปลี่ยนค่าของ y จาก 10 เป็น 15 ได้</p>
+<h2 id="ความสำคัญของ-immutable-และ-mutable"><a class="header" href="#ความสำคัญของ-immutable-และ-mutable">ความสำคัญของ Immutable และ Mutable</a></h2>
+<h3 id="ความปลอดภัยและความชัดเจน"><a class="header" href="#ความปลอดภัยและความชัดเจน">ความปลอดภัยและความชัดเจน</a></h3>
+<p>การใช้ตัวแปรแบบ Immutable ช่วยให้โค้ดของเรามีความปลอดภัยมากขึ้น เนื่องจากค่าของตัวแปรจะไม่ถูกเปลี่ยนแปลงโดยไม่ตั้งใจ การใช้ Immutable เป็นค่าเริ่มต้นเป็นแนวทางที่ดีในการเขียนโค้ดที่ปลอดภัยและมีความชัดเจน</p>
+<h3 id="ประสิทธิภาพ"><a class="header" href="#ประสิทธิภาพ">ประสิทธิภาพ</a></h3>
+<p>Rust สามารถทำการปรับแต่งโค้ด (Optimization) ได้ดีขึ้นเมื่อรู้ว่าค่าของตัวแปรจะไม่เปลี่ยนแปลง การใช้ตัวแปรแบบ Immutable ทำให้ Rust สามารถคาดการณ์และจัดการหน่วยความจำได้อย่างมีประสิทธิภาพ</p>
+<h3 id="ความยืดหยุน"><a class="header" href="#ความยืดหยุน">ความยืดหยุ่น</a></h3>
+<p>ในบางกรณีที่เราต้องการเปลี่ยนแปลงค่าของตัวแปร การใช้ตัวแปรแบบ Mutable จะช่วยให้โค้ดของเรามีความยืดหยุ่นมากขึ้น เช่น การใช้ตัวแปรเพื่อเก็บผลลัพธ์ชั่วคราวหรือค่าที่ต้องมีการเปลี่ยนแปลงตามเงื่อนไขต่างๆ</p>
+<h2 id="การทดลองเปรียบเทียบประสิทธิภาพ"><a class="header" href="#การทดลองเปรียบเทียบประสิทธิภาพ">การทดลองเปรียบเทียบประสิทธิภาพ</a></h2>
+<p>เพื่อให้เห็นความแตกต่างของการใช้ตัวแปรแบบ Immutable และ Mutable ต่อประสิทธิภาพ เราจะทำการทดลองด้วยโค้ดที่มีการคำนวณอย่างง่าย</p>
+<pre><code class="language-Rust">    fn main (
+
+    )
+</code></pre>
+<h2 id="การทดลองเปรียบเทียบความปลอดภัย"><a class="header" href="#การทดลองเปรียบเทียบความปลอดภัย">การทดลองเปรียบเทียบความปลอดภัย</a></h2>
+<p>เพื่อให้เห็นความแตกต่างในด้านความปลอดภัยระหว่างการใช้ตัวแปรแบบ Immutable และ Mutable เราจะทำการทดลองด้วยโค้ดที่มีการเปลี่ยนแปลงค่า</p>
+<p>โค้ดตัวอย่าง: Immutable</p>
+<pre><code class="language-Rust">fn main() {
+    let x = 5;
+    // ข้อผิดพลาดจะเกิดขึ้นถ้าพยายามเปลี่ยนค่า x
+    x = 6; // Error: cannot assign twice to immutable variable
+    println!(&quot;The value of x is: {}&quot;, x);
+}
+</code></pre>
+<p>โค้ดตัวอย่าง: Mutable</p>
+<pre><code class="language-Rust">fn main() {
+    let mut y = 10;
+    y = 20; // สามารถเปลี่ยนค่าได้
+    println!(&quot;The value of y is: {}&quot;, y);
+}
+</code></pre>
+<h2 id="ผลการทดลอง"><a class="header" href="#ผลการทดลอง">ผลการทดลอง</a></h2>
+<p>จากการทดลองจะเห็นได้ว่าการใช้ตัวแปรแบบ Immutable ป้องกันการเปลี่ยนแปลงค่าที่ไม่คาดคิดได้ดี ขณะที่ตัวแปรแบบ Mutable เปิดโอกาสให้เกิดข้อผิดพลาดจากการเปลี่ยนแปลงค่าโดยไม่ได้ตั้งใจ</p>
+<h2 id="การทดลองเพิมเติม"><a class="header" href="#การทดลองเพิมเติม">การทดลองเพิ่มเติม</a></h2>
+<p>การศึกษาโดย Mozilla (2020) พบว่าการใช้ตัวแปร Immutable ใน Rust ช่วยลดข้อผิดพลาดที่เกิดจากการเปลี่ยนแปลงค่าโดยไม่ตั้งใจได้อย่างมีนัยสำคัญ เมื่อเปรียบเทียบกับการใช้ตัวแปรแบบ Mutable ในภาษาการเขียนโปรแกรมอื่นๆ เช่น C++ และ Java .</p>
+<h2 id="ขอควรระวัง"><a class="header" href="#ขอควรระวัง">ข้อควรระวัง</a></h2>
+<p>การใช้ตัวแปรแบบ Mutable มีข้อดีหลายประการ แต่ก็มีข้อควรระวังเช่นกัน:</p>
+<p>ความปลอดภัย: การใช้ตัวแปรแบบ Mutable อาจเพิ่มความเสี่ยงในการเกิดข้อผิดพลาดจากการเปลี่ยนแปลงค่าที่ไม่คาดคิด ควรใช้ตัวแปรแบบ Mutable อย่างระมัดระวัง
+การทำความเข้าใจโค้ด: การใช้ตัวแปรแบบ Mutable อาจทำให้โค้ดยากต่อการทำความเข้าใจและติดตามการเปลี่ยนแปลงค่า
+การเลือกใช้ตัวแปรแบบ Immutable หรือ Mutable ขึ้นอยู่กับลักษณะงานและความต้องการของโปรแกรม การจัดการตัวแปรทั้งสองประเภทนี้อย่างเหมาะสม จะช่วยให้โปรแกรมของเรามีประสิทธิภาพและปลอดภัยยิ่งขึ้น</p>
+<h2 id="สรุป"><a class="header" href="#สรุป">สรุป</a></h2>
+<p>แนวคิดของตัวแปรที่สามารถเปลี่ยนแปลงค่าได้ (Mutable) และไม่สามารถเปลี่ยนแปลงค่าได้ (Immutable) เป็นพื้นฐานสำคัญในการพัฒนาโปรแกรมด้วย Rust การใช้ตัวแปรแบบ Immutable ช่วยให้โค้ดมีความปลอดภัยและชัดเจน ขณะที่ตัวแปรแบบ Mutable ให้ความยืดหยุ่นในการพัฒนาโปรแกรม การเลือกใช้และจัดการตัวแปรทั้งสองประเภทนี้อย่างเหมาะสมจะช่วยให้โปรแกรมของเรามีประสิทธิภาพและปลอดภัยมากยิ่งขึ้น การทดลองแสดงให้เห็นว่าในบางกรณีการใช้ Mutable อาจมีประสิทธิภาพที่ดีกว่า แต่ควรใช้อย่างระมัดระวังเพื่อความปลอดภัยของโค้ด</p>
+
+                    </main>
+
+                    <nav class="nav-wrapper" aria-label="Page navigation">
+                        <!-- Mobile navigation buttons -->
+                            <a rel="prev" href="../chapter2/data_types.html" class="mobile-nav-chapters previous" title="Previous chapter" aria-label="Previous chapter" aria-keyshortcuts="Left">
+                                <i class="fa fa-angle-left"></i>
+                            </a>
+
+                            <a rel="next" href="../chapter2/immutable_static_const.html" class="mobile-nav-chapters next" title="Next chapter" aria-label="Next chapter" aria-keyshortcuts="Right">
+                                <i class="fa fa-angle-right"></i>
+                            </a>
+
+                        <div style="clear: both"></div>
+                    </nav>
+                </div>
+            </div>
+
+            <nav class="nav-wide-wrapper" aria-label="Page navigation">
+                    <a rel="prev" href="../chapter2/data_types.html" class="nav-chapters previous" title="Previous chapter" aria-label="Previous chapter" aria-keyshortcuts="Left">
+                        <i class="fa fa-angle-left"></i>
+                    </a>
+
+                    <a rel="next" href="../chapter2/immutable_static_const.html" class="nav-chapters next" title="Next chapter" aria-label="Next chapter" aria-keyshortcuts="Right">
+                        <i class="fa fa-angle-right"></i>
+                    </a>
+            </nav>
+
+        </div>
+
+
+
+
+        <script>
+            window.playground_copyable = true;
+        </script>
+
+
+        <script src="../elasticlunr.min.js"></script>
+        <script src="../mark.min.js"></script>
+        <script src="../searcher.js"></script>
+
+        <script src="../clipboard.min.js"></script>
+        <script src="../highlight.js"></script>
+        <script src="../book.js"></script>
+
+        <!-- Custom JS scripts -->
+
+
+    </div>
+    </body>
+</html>

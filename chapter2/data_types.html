@@ -1,0 +1,318 @@
+<!DOCTYPE HTML>
+<html lang="en" class="sidebar-visible no-js light">
+    <head>
+        <!-- Book generated using mdBook -->
+        <meta charset="UTF-8">
+        <title>Data Types - Rust Programming Tutorial (Thai)</title>
+
+
+        <!-- Custom HTML head -->
+        
+        <meta name="description" content="">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <meta name="theme-color" content="#ffffff" />
+
+        <link rel="icon" href="../favicon.svg">
+        <link rel="shortcut icon" href="../favicon.png">
+        <link rel="stylesheet" href="../css/variables.css">
+        <link rel="stylesheet" href="../css/general.css">
+        <link rel="stylesheet" href="../css/chrome.css">
+        <link rel="stylesheet" href="../css/print.css" media="print">
+
+        <!-- Fonts -->
+        <link rel="stylesheet" href="../FontAwesome/css/font-awesome.css">
+        <link rel="stylesheet" href="../fonts/fonts.css">
+
+        <!-- Highlight.js Stylesheets -->
+        <link rel="stylesheet" href="../highlight.css">
+        <link rel="stylesheet" href="../tomorrow-night.css">
+        <link rel="stylesheet" href="../ayu-highlight.css">
+
+        <!-- Custom theme stylesheets -->
+
+    </head>
+    <body>
+    <div id="body-container">
+        <!-- Provide site root to javascript -->
+        <script>
+            var path_to_root = "../";
+            var default_theme = window.matchMedia("(prefers-color-scheme: dark)").matches ? "navy" : "light";
+        </script>
+
+        <!-- Work around some values being stored in localStorage wrapped in quotes -->
+        <script>
+            try {
+                var theme = localStorage.getItem('mdbook-theme');
+                var sidebar = localStorage.getItem('mdbook-sidebar');
+
+                if (theme.startsWith('"') && theme.endsWith('"')) {
+                    localStorage.setItem('mdbook-theme', theme.slice(1, theme.length - 1));
+                }
+
+                if (sidebar.startsWith('"') && sidebar.endsWith('"')) {
+                    localStorage.setItem('mdbook-sidebar', sidebar.slice(1, sidebar.length - 1));
+                }
+            } catch (e) { }
+        </script>
+
+        <!-- Set the theme before any content is loaded, prevents flash -->
+        <script>
+            var theme;
+            try { theme = localStorage.getItem('mdbook-theme'); } catch(e) { }
+            if (theme === null || theme === undefined) { theme = default_theme; }
+            var html = document.querySelector('html');
+            html.classList.remove('no-js')
+            html.classList.remove('light')
+            html.classList.add(theme);
+            html.classList.add('js');
+        </script>
+
+        <!-- Hide / unhide sidebar before it is displayed -->
+        <script>
+            var html = document.querySelector('html');
+            var sidebar = null;
+            if (document.body.clientWidth >= 1080) {
+                try { sidebar = localStorage.getItem('mdbook-sidebar'); } catch(e) { }
+                sidebar = sidebar || 'visible';
+            } else {
+                sidebar = 'hidden';
+            }
+            html.classList.remove('sidebar-visible');
+            html.classList.add("sidebar-" + sidebar);
+        </script>
+
+        <nav id="sidebar" class="sidebar" aria-label="Table of contents">
+            <div class="sidebar-scrollbox">
+                <ol class="chapter"><li class="chapter-item expanded "><a href="../index.html"><strong aria-hidden="true">1.</strong> Introduction</a></li><li class="chapter-item expanded "><a href="../chapter1/intro.html"><strong aria-hidden="true">2.</strong> Chapter 1: Getting Started</a></li><li><ol class="section"><li class="chapter-item expanded "><a href="../chapter1/install_windows.html"><strong aria-hidden="true">2.1.</strong> Installing Rust on Windows</a></li><li class="chapter-item expanded "><a href="../chapter1/install_macos.html"><strong aria-hidden="true">2.2.</strong> Installing Rust on macOS</a></li><li class="chapter-item expanded "><a href="../chapter1/first_project.html"><strong aria-hidden="true">2.3.</strong> Your First Project</a></li></ol></li><li class="chapter-item expanded "><a href="../chapter2/basics.html"><strong aria-hidden="true">3.</strong> Chapter 2: Basics</a></li><li><ol class="section"><li class="chapter-item expanded "><a href="../chapter2/variables.html"><strong aria-hidden="true">3.1.</strong> Variables</a></li><li class="chapter-item expanded "><a href="../chapter2/data_types.html" class="active"><strong aria-hidden="true">3.2.</strong> Data Types</a></li><li class="chapter-item expanded "><a href="../chapter2/mutable_immutable.html"><strong aria-hidden="true">3.3.</strong> Mutable and Immutable</a></li><li class="chapter-item expanded "><a href="../chapter2/immutable_static_const.html"><strong aria-hidden="true">3.4.</strong> Immutable_Static_Const</a></li></ol></li><li class="chapter-item expanded "><a href="../chapter3/functions.html"><strong aria-hidden="true">4.</strong> Chapter 3: Functions</a></li><li><ol class="section"><li class="chapter-item expanded "><a href="../chapter3/scope.html"><strong aria-hidden="true">4.1.</strong> Scope</a></li><li class="chapter-item expanded "><a href="../chapter3/lifetime.html"><strong aria-hidden="true">4.2.</strong> Lifetimes</a></li></ol></li><li class="chapter-item expanded "><a href="../chapter4/control_flow.html"><strong aria-hidden="true">5.</strong> Chapter 4: Control Flow</a></li><li><ol class="section"><li class="chapter-item expanded "><a href="../chapter4/loops.html"><strong aria-hidden="true">5.1.</strong> Loops</a></li><li class="chapter-item expanded "><a href="../chapter4/match.html"><strong aria-hidden="true">5.2.</strong> Match</a></li></ol></li><li class="chapter-item expanded "><a href="../chapter5/ownership.html"><strong aria-hidden="true">6.</strong> Chapter 5: Ownership and Borrowing</a></li><li><ol class="section"><li class="chapter-item expanded "><a href="../chapter5/borrowing.html"><strong aria-hidden="true">6.1.</strong> Borrowing</a></li><li class="chapter-item expanded "><a href="../chapter5/lifetimes.html"><strong aria-hidden="true">6.2.</strong> Lifetimes</a></li></ol></li><li class="chapter-item expanded "><a href="../chapter6/structs.html"><strong aria-hidden="true">7.</strong> Chapter 6: Structs and Enums</a></li><li><ol class="section"><li class="chapter-item expanded "><a href="../chapter6/enums.html"><strong aria-hidden="true">7.1.</strong> Enums</a></li><li class="chapter-item expanded "><a href="../chapter6/methods.html"><strong aria-hidden="true">7.2.</strong> Methods</a></li></ol></li><li class="chapter-item expanded "><a href="../chapter7/error_handling.html"><strong aria-hidden="true">8.</strong> Chapter 7: Error Handling</a></li><li><ol class="section"><li class="chapter-item expanded "><a href="../chapter7/result_option.html"><strong aria-hidden="true">8.1.</strong> Result and Option</a></li><li class="chapter-item expanded "><a href="../chapter7/match_unwrap.html"><strong aria-hidden="true">8.2.</strong> Match and Unwrap</a></li></ol></li><li class="chapter-item expanded "><a href="../chapter8/vectors.html"><strong aria-hidden="true">9.</strong> Chapter 8: Collections</a></li><li><ol class="section"><li class="chapter-item expanded "><a href="../chapter8/hash_maps.html"><strong aria-hidden="true">9.1.</strong> Hash Maps</a></li><li class="chapter-item expanded "><a href="../chapter8/strings.html"><strong aria-hidden="true">9.2.</strong> Strings</a></li></ol></li><li class="chapter-item expanded "><a href="../chapter9/modules.html"><strong aria-hidden="true">10.</strong> Chapter 9: Modules and Crates</a></li><li><ol class="section"><li class="chapter-item expanded "><a href="../chapter9/crates.html"><strong aria-hidden="true">10.1.</strong> Crates</a></li><li class="chapter-item expanded "><a href="../chapter9/cargo_dependencies.html"><strong aria-hidden="true">10.2.</strong> Cargo Dependencies</a></li></ol></li><li class="chapter-item expanded "><a href="../chapter10/traits.html"><strong aria-hidden="true">11.</strong> Chapter 10: Traits and Generics</a></li><li><ol class="section"><li class="chapter-item expanded "><a href="../chapter10/generics.html"><strong aria-hidden="true">11.1.</strong> Generics</a></li><li class="chapter-item expanded "><a href="../chapter10/reusable_code.html"><strong aria-hidden="true">11.2.</strong> Reusable Code</a></li></ol></li><li class="chapter-item expanded "><a href="../chapter11/unit_tests.html"><strong aria-hidden="true">12.</strong> Chapter 11: Testing</a></li><li><ol class="section"><li class="chapter-item expanded "><a href="../chapter11/integration_tests.html"><strong aria-hidden="true">12.1.</strong> Integration Tests</a></li><li class="chapter-item expanded "><a href="../chapter11/cargo_test.html"><strong aria-hidden="true">12.2.</strong> Cargo Test</a></li></ol></li><li class="chapter-item expanded "><a href="../chapter12/async_intro.html"><strong aria-hidden="true">13.</strong> Chapter 12: Asynchronous Programming</a></li><li><ol class="section"><li class="chapter-item expanded "><a href="../chapter12/async_await.html"><strong aria-hidden="true">13.1.</strong> Async Await</a></li><li class="chapter-item expanded "><a href="../chapter12/tokio.html"><strong aria-hidden="true">13.2.</strong> Tokio</a></li></ol></li><li class="chapter-item expanded "><a href="../chapter13/design.html"><strong aria-hidden="true">14.</strong> Chapter 13: High Concurrency Ticket Booking System</a></li><li><ol class="section"><li class="chapter-item expanded "><a href="../chapter13/concurrency.html"><strong aria-hidden="true">14.1.</strong> Concurrency</a></li><li class="chapter-item expanded "><a href="../chapter13/database.html"><strong aria-hidden="true">14.2.</strong> Database</a></li><li class="chapter-item expanded "><a href="../SUMMARY.html"><strong aria-hidden="true">14.3.</strong> Summary</a></li></ol></li></ol>
+            </div>
+            <div id="sidebar-resize-handle" class="sidebar-resize-handle"></div>
+        </nav>
+
+        <div id="page-wrapper" class="page-wrapper">
+
+            <div class="page">
+                                <div id="menu-bar-hover-placeholder"></div>
+                <div id="menu-bar" class="menu-bar sticky bordered">
+                    <div class="left-buttons">
+                        <button id="sidebar-toggle" class="icon-button" type="button" title="Toggle Table of Contents" aria-label="Toggle Table of Contents" aria-controls="sidebar">
+                            <i class="fa fa-bars"></i>
+                        </button>
+                        <button id="theme-toggle" class="icon-button" type="button" title="Change theme" aria-label="Change theme" aria-haspopup="true" aria-expanded="false" aria-controls="theme-list">
+                            <i class="fa fa-paint-brush"></i>
+                        </button>
+                        <ul id="theme-list" class="theme-popup" aria-label="Themes" role="menu">
+                            <li role="none"><button role="menuitem" class="theme" id="light">Light</button></li>
+                            <li role="none"><button role="menuitem" class="theme" id="rust">Rust</button></li>
+                            <li role="none"><button role="menuitem" class="theme" id="coal">Coal</button></li>
+                            <li role="none"><button role="menuitem" class="theme" id="navy">Navy</button></li>
+                            <li role="none"><button role="menuitem" class="theme" id="ayu">Ayu</button></li>
+                        </ul>
+                        <button id="search-toggle" class="icon-button" type="button" title="Search. (Shortkey: s)" aria-label="Toggle Searchbar" aria-expanded="false" aria-keyshortcuts="S" aria-controls="searchbar">
+                            <i class="fa fa-search"></i>
+                        </button>
+                    </div>
+
+                    <h1 class="menu-title">Rust Programming Tutorial (Thai)</h1>
+
+                    <div class="right-buttons">
+                        <a href="../print.html" title="Print this book" aria-label="Print this book">
+                            <i id="print-button" class="fa fa-print"></i>
+                        </a>
+
+                    </div>
+                </div>
+
+                <div id="search-wrapper" class="hidden">
+                    <form id="searchbar-outer" class="searchbar-outer">
+                        <input type="search" id="searchbar" name="searchbar" placeholder="Search this book ..." aria-controls="searchresults-outer" aria-describedby="searchresults-header">
+                    </form>
+                    <div id="searchresults-outer" class="searchresults-outer hidden">
+                        <div id="searchresults-header" class="searchresults-header"></div>
+                        <ul id="searchresults">
+                        </ul>
+                    </div>
+                </div>
+
+                <!-- Apply ARIA attributes after the sidebar and the sidebar toggle button are added to the DOM -->
+                <script>
+                    document.getElementById('sidebar-toggle').setAttribute('aria-expanded', sidebar === 'visible');
+                    document.getElementById('sidebar').setAttribute('aria-hidden', sidebar !== 'visible');
+                    Array.from(document.querySelectorAll('#sidebar a')).forEach(function(link) {
+                        link.setAttribute('tabIndex', sidebar === 'visible' ? 0 : -1);
+                    });
+                </script>
+
+                <div id="content" class="content">
+                    <main>
+                        <h1 id="data-types"><a class="header" href="#data-types">Data Types</a></h1>
+<p>ชนิดข้อมูล (Data Types) ใน Rust เป็นพื้นฐานสำคัญในการพัฒนาโปรแกรม การทำความเข้าใจชนิดข้อมูลต่างๆ จะช่วยให้เราเขียนโค้ดได้อย่างมีประสิทธิภาพและปลอดภัย ในบทนี้เราจะมาทำความรู้จักกับชนิดข้อมูลพื้นฐานใน Rust และวิธีการใช้งาน</p>
+<h2 id="ชนิดขอมูลพืนฐาน-primitive-data-types"><a class="header" href="#ชนิดขอมูลพืนฐาน-primitive-data-types">ชนิดข้อมูลพื้นฐาน (Primitive Data Types)</a></h2>
+<p>Rust มีชนิดข้อมูลพื้นฐานหลายชนิดที่สามารถใช้ได้ตามความเหมาะสม ได้แก่:</p>
+<h3 id="1-ตัวเลขจำนวนเตม-integer"><a class="header" href="#1-ตัวเลขจำนวนเตม-integer">1. ตัวเลขจำนวนเต็ม (Integer)</a></h3>
+<p>ตัวเลขจำนวนเต็มใน Rust มีหลายขนาดและสามารถเป็นทั้งเลขบวกและเลขลบ (signed) หรือเลขบวกอย่างเดียว (unsigned) โดยขนาดของตัวเลขจะเป็นไปตามจำนวนบิต เช่น <code>i8</code>, <code>i16</code>, <code>i32</code>, <code>i64</code>, <code>i128</code> สำหรับ signed integers และ <code>u8</code>, <code>u16</code>, <code>u32</code>, <code>u64</code>, <code>u128</code> สำหรับ unsigned integers</p>
+<p>ตัวอย่างการใช้งาน:</p>
+<pre><pre class="playground"><code class="language-rust"><span class="boring">#![allow(unused)]
+</span><span class="boring">fn main() {
+</span>let a: i32 = 42; // ตัวเลขจำนวนเต็มแบบ signed ขนาด 32 บิต
+let b: u8 = 255; // ตัวเลขจำนวนเต็มแบบ unsigned ขนาด 8 บิต
+<span class="boring">}</span></code></pre></pre>
+<h2 id="2-ตัวเลขทศนิยม-floating-point"><a class="header" href="#2-ตัวเลขทศนิยม-floating-point">2. ตัวเลขทศนิยม (Floating-Point)</a></h2>
+<p>Rust สนับสนุนตัวเลขทศนิยมที่มีขนาด 32 บิต (f32) และ 64 บิต (f64) ซึ่ง f64 เป็นค่าเริ่มต้น</p>
+<p>ตัวอย่างการใช้งาน:</p>
+<pre><pre class="playground"><code class="language-rust"><span class="boring">#![allow(unused)]
+</span><span class="boring">fn main() {
+</span>let x: f64 = 3.14; // ตัวเลขทศนิยมขนาด 64 บิต
+let y: f32 = 2.5; // ตัวเลขทศนิยมขนาด 32 บิต
+<span class="boring">}</span></code></pre></pre>
+<h2 id="3-ตัวอักษร-character"><a class="header" href="#3-ตัวอักษร-character">3. ตัวอักษร (Character)</a></h2>
+<p>Rust ใช้ char สำหรับเก็บตัวอักษร ซึ่งเป็นชนิดข้อมูลที่สามารถเก็บ Unicode scalar value ได้</p>
+<p>ตัวอย่างการใช้งาน:</p>
+<pre><pre class="playground"><code class="language-rust"><span class="boring">#![allow(unused)]
+</span><span class="boring">fn main() {
+</span>let c: char = 'A'; // ตัวอักษร
+let heart_eyed_cat: char = '😻'; // อีโมจิ
+<span class="boring">}</span></code></pre></pre>
+<h2 id="4-บูลีน-boolean"><a class="header" href="#4-บูลีน-boolean">4. บูลีน (Boolean)</a></h2>
+<p>Rust ใช้ bool สำหรับเก็บค่าทางตรรกะที่เป็นจริง (true) หรือเท็จ (false)</p>
+<p>ตัวอย่างการใช้งาน:</p>
+<pre><pre class="playground"><code class="language-rust"><span class="boring">#![allow(unused)]
+</span><span class="boring">fn main() {
+</span>let t: bool = true; // ค่า true
+let f: bool = false; // ค่า false
+<span class="boring">}</span></code></pre></pre>
+<h2 id="5-สตริง-string"><a class="header" href="#5-สตริง-string">5. สตริง (String)</a></h2>
+<p>Rust มีชนิดข้อมูลสตริงสองแบบ คือ &amp;str (string slice) และ String ซึ่ง &amp;str เป็นชนิดข้อมูลที่มีประสิทธิภาพสูงและใช้สำหรับการอ้างอิงสตริงแบบคงที่ ในขณะที่ String เป็นสตริงที่สามารถเปลี่ยนแปลงค่าได้</p>
+<p>ตัวอย่างการใช้งาน:</p>
+<pre><pre class="playground"><code class="language-rust"><span class="boring">#![allow(unused)]
+</span><span class="boring">fn main() {
+</span>let s1: &amp;str = &quot;Hello, world!&quot;; // string slice
+let mut s2: String = String::from(&quot;Hello, Rust!&quot;); // String
+s2.push_str(&quot; Welcome!&quot;); // เพิ่มข้อความใน String
+<span class="boring">}</span></code></pre></pre>
+<h2 id="ความแตกตางระหวาง-str-และ-string"><a class="header" href="#ความแตกตางระหวาง-str-และ-string">ความแตกต่างระหว่าง &amp;str และ String</a></h2>
+<p>&amp;str เป็น string slice ที่ใช้อ้างอิงสตริงแบบคงที่และมีประสิทธิภาพสูง เนื่องจากอยู่บน Stack และไม่สามารถเปลี่ยนแปลงค่าได้</p>
+<p>String เป็นชนิดข้อมูลที่ใช้เก็บสตริงที่สามารถเปลี่ยนแปลงค่าได้ และถูกเก็บใน Heap ซึ่งมีความยืดหยุ่นในการจัดการหน่วยความจำ</p>
+<p>ข้อดีของ &amp;str:</p>
+<p>ประสิทธิภาพสูง เนื่องจากอยู่บน Stack
+เหมาะสำหรับค่าคงที่
+ข้อดีของ String:</p>
+<p>ยืดหยุ่น สามารถเปลี่ยนแปลงค่าได้
+เหมาะสำหรับการจัดการสตริงที่มีการเปลี่ยนแปลง</p>
+<h2 id="การจัดการหนวยความจำ-stack-และ-heap"><a class="header" href="#การจัดการหนวยความจำ-stack-และ-heap">การจัดการหน่วยความจำ: Stack และ Heap</a></h2>
+<h2 id="stack"><a class="header" href="#stack">Stack</a></h2>
+<p>Stack เป็นพื้นที่หน่วยความจำที่ใช้เก็บข้อมูลชั่วคราวเช่นตัวแปรที่ประกาศในฟังก์ชัน ข้อมูลที่เก็บใน Stack จะถูกจัดการแบบอัตโนมัติและมีการเข้าถึงที่รวดเร็ว แต่ขนาดของ Stack จะถูกจำกัด</p>
+<p>ตัวแปรที่เก็บใน Stack มักจะเป็นตัวแปรที่มีขนาดเล็กและมีอายุการใช้งานสั้น เช่น:</p>
+<pre><code class="language-Rust">fn main() {
+    let a = 10; // ตัวแปร a ถูกเก็บใน Stack
+    let b = 20;
+    println!(&quot;a: {}, b: {}&quot;, a, b);
+}
+</code></pre>
+<h2 id="heap"><a class="header" href="#heap">Heap</a></h2>
+<p>Heap เป็นพื้นที่หน่วยความจำที่ใช้เก็บข้อมูลที่มีขนาดใหญ่หรือมีอายุการใช้งานยาวนาน ข้อมูลใน Heap จะต้องจัดการด้วยตนเอง การเข้าถึงข้อมูลใน Heap จะช้ากว่า Stack แต่สามารถเก็บข้อมูลได้มากกว่า</p>
+<p>ตัวอย่างการใช้ Heap ใน Rust:</p>
+<pre><code class="language-Rust">fn main() {
+    let s1 = String::from(&quot;Hello, world!&quot;); // ตัวแปร s1 ถูกเก็บใน Heap
+    println!(&quot;{}&quot;, s1);
+}
+</code></pre>
+<p>ในตัวอย่างนี้ สตริง s1 ถูกเก็บใน Heap เนื่องจากมีขนาดใหญ่และมีการจัดการหน่วยความจำโดย Rust</p>
+<h2 id="ความสำคัญของ-stack-และ-heap-ใน-rust"><a class="header" href="#ความสำคัญของ-stack-และ-heap-ใน-rust">ความสำคัญของ Stack และ Heap ใน Rust</a></h2>
+<p>การจัดการหน่วยความจำใน Rust นั้นพิเศษตรงที่ Rust ไม่มี garbage collector แบบภาษาโปรแกรมระดับสูงอื่น ๆ เช่น Java หรือ Python การจัดการหน่วยความจำใน Rust ทำได้โดยใช้หลักการ Ownership, Borrowing และ Lifetimes ซึ่งทำให้การจัดการหน่วยความจำมีประสิทธิภาพและปลอดภัย</p>
+<p>Stack: ข้อมูลที่เก็บใน Stack จะถูกจัดการแบบอัตโนมัติ มีประสิทธิภาพในการเข้าถึงสูง แต่ขนาดของ Stack จะถูกจำกัด
+Heap: ข้อมูลที่เก็บใน Heap จะต้องจัดการด้วยตนเอง แต่มีความยืดหยุ่นในการจัดการหน่วยความจำ สามารถเก็บข้อมูลได้มากกว่าและใช้งานได้นานกว่า</p>
+<h2 id="ownership-borrowing-และ-lifetimes"><a class="header" href="#ownership-borrowing-และ-lifetimes">Ownership, Borrowing และ Lifetimes</a></h2>
+<h2 id="ownership"><a class="header" href="#ownership">Ownership</a></h2>
+<p>ใน Rust ทุกค่ามีตัวเจ้าของ (owner) และในเวลาใดๆ จะมีเพียงเจ้าของเดียวเท่านั้น เมื่อเจ้าของหมดอายุ (ออกนอกขอบเขตการใช้งาน) ค่านั้นจะถูกปล่อยคืนหน่วยความจำ (dropped) การใช้ Ownership ช่วยให้ Rust จัดการหน่วยความจำได้โดยไม่ต้องใช้ garbage collector</p>
+<p>ตัวอย่างการใช้งาน Ownership:</p>
+<pre><code class="language-Rust">fn main() {
+    let s1 = String::from(&quot;Hello&quot;);
+    let s2 = s1; // Ownership ของ &quot;Hello&quot; ย้ายจาก s1 ไปยัง s2
+    // println!(&quot;{}&quot;, s1); // จะเกิดข้อผิดพลาดเนื่องจาก s1 ไม่มีค่าอีกต่อไป
+}
+</code></pre>
+<h2 id="borrowing"><a class="header" href="#borrowing">Borrowing</a></h2>
+<p>Borrowing คือการยืมค่ามาใช้งานชั่วคราวโดยไม่โอน Ownership การ Borrowing แบ่งออกเป็นสองประเภท คือ ยืมแบบอ่านอย่างเดียว (immutable borrow) และยืมแบบเปลี่ยนแปลงค่าได้ (mutable borrow)</p>
+<p>ตัวอย่างการใช้งาน Borrowing:</p>
+<pre><code class="language-Rust">fn main() {
+    let s1 = String::from(&quot;Hello&quot;);
+    let len = calculate_length(&amp;s1); // ยืม s1 มาใช้งาน
+    println!(&quot;The length of '{}' is {}&quot;, s1, len);
+}
+
+fn calculate_length(s: &amp;String) -&gt; usize {
+    s.len()
+}
+</code></pre>
+<h2 id="lifetimes"><a class="header" href="#lifetimes">Lifetimes</a></h2>
+<p>Lifetimes ใช้เพื่อระบุขอบเขตการใช้งานของการยืมค่า ช่วยให้ Rust ตรวจสอบและป้องกันข้อผิดพลาดจากการอ้างอิงค่าที่หมดอายุแล้ว</p>
+<p>ตัวอย่างการใช้งาน Lifetimes:</p>
+<pre><code class="language-Rust">fn main() {
+    let r;
+    {
+        let x = 5;
+        r = &amp;x; // Error: x หมดอายุการใช้งานก่อน r
+    }
+    println!(&quot;r: {}&quot;, r);
+}
+</code></pre>
+<p>การใช้ Lifetimes ช่วยให้การจัดการหน่วยความจำใน Rust ปลอดภัยและปราศจากข้อผิดพลาด</p>
+<h2 id="การเลือกใชชนิดขอมูลและการจัดการหนวยความจำ"><a class="header" href="#การเลือกใชชนิดขอมูลและการจัดการหนวยความจำ">การเลือกใช้ชนิดข้อมูลและการจัดการหน่วยความจำ</a></h2>
+<p>การเลือกใช้ชนิดข้อมูลที่เหมาะสมเป็นสิ่งสำคัญในการพัฒนาโปรแกรมที่มีประสิทธิภาพและปลอดภัย ข้อควรระวังในการใช้ชนิดข้อมูลได้แก่:</p>
+<p>การใช้ขนาดของตัวเลขที่เหมาะสม: เลือกใช้ขนาดของตัวเลขที่พอดีกับข้อมูลที่เก็บ เพื่อประหยัดหน่วยความจำและเพิ่มประสิทธิภาพ
+การตรวจสอบขอบเขตของตัวเลข: ระมัดระวังในการใช้ตัวเลขที่มีขอบเขตจำกัด เช่น u8 เพื่อหลีกเลี่ยงการล้นของตัวเลข (overflow)
+การใช้ชนิดข้อมูลที่ตรงกับความต้องการ: เช่น ใช้ bool สำหรับค่าทางตรรกะ และ char สำหรับตัวอักษร</p>
+<h2 id="สรุป"><a class="header" href="#สรุป">สรุป</a></h2>
+<p>ชนิดข้อมูลใน Rust เป็นพื้นฐานสำคัญในการพัฒนาโปรแกรม Rust มีชนิดข้อมูลพื้นฐานหลายชนิดที่สามารถเลือกใช้ได้ตามความเหมาะสม การทำความเข้าใจและใช้ชนิดข้อมูลที่ถูกต้องจะช่วยให้โปรแกรมของเรามีประสิทธิภาพและปลอดภัยมากยิ่งขึ้น การจัดการหน่วยความจำใน Rust โดยใช้ Stack และ Heap ทำให้การเขียนโปรแกรมมีความยืดหยุ่นและมีประสิทธิภาพมากยิ่งขึ้น รวมถึงการเข้าใจหลักการ Ownership, Borrowing และ Lifetimes ที่เป็นเอกลักษณ์ของ Rust จะช่วยให้การพัฒนาโปรแกรมมีความปลอดภัยและปราศจากข้อผิดพลาด</p>
+
+                    </main>
+
+                    <nav class="nav-wrapper" aria-label="Page navigation">
+                        <!-- Mobile navigation buttons -->
+                            <a rel="prev" href="../chapter2/variables.html" class="mobile-nav-chapters previous" title="Previous chapter" aria-label="Previous chapter" aria-keyshortcuts="Left">
+                                <i class="fa fa-angle-left"></i>
+                            </a>
+
+                            <a rel="next" href="../chapter2/mutable_immutable.html" class="mobile-nav-chapters next" title="Next chapter" aria-label="Next chapter" aria-keyshortcuts="Right">
+                                <i class="fa fa-angle-right"></i>
+                            </a>
+
+                        <div style="clear: both"></div>
+                    </nav>
+                </div>
+            </div>
+
+            <nav class="nav-wide-wrapper" aria-label="Page navigation">
+                    <a rel="prev" href="../chapter2/variables.html" class="nav-chapters previous" title="Previous chapter" aria-label="Previous chapter" aria-keyshortcuts="Left">
+                        <i class="fa fa-angle-left"></i>
+                    </a>
+
+                    <a rel="next" href="../chapter2/mutable_immutable.html" class="nav-chapters next" title="Next chapter" aria-label="Next chapter" aria-keyshortcuts="Right">
+                        <i class="fa fa-angle-right"></i>
+                    </a>
+            </nav>
+
+        </div>
+
+
+
+
+        <script>
+            window.playground_copyable = true;
+        </script>
+
+
+        <script src="../elasticlunr.min.js"></script>
+        <script src="../mark.min.js"></script>
+        <script src="../searcher.js"></script>
+
+        <script src="../clipboard.min.js"></script>
+        <script src="../highlight.js"></script>
+        <script src="../book.js"></script>
+
+        <!-- Custom JS scripts -->
+
+
+    </div>
+    </body>
+</html>
